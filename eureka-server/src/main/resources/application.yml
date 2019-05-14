@@ -3,10 +3,11 @@ server:
 
 eureka:
   instance:
-    hostname: localhost
+    hostname: 192.168.31.168
+    preferIpAddress: true
   client:
     registerWithEureka: false  #通过eureka.client.registerWithEureka：false和fetchRegistry：false来表明自己是一个eureka server.
-    fetchRegistry: false
+    fetchRegistry: false #表示不去检索其他服务，因为服务注册中心本身的职责就是维护服务实例，它也不需要去检索其他服务
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   server:
